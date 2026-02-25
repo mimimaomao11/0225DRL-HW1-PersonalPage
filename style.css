@@ -1,0 +1,206 @@
+/* ── Reset & Base ────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Outfit', sans-serif;
+  background: #0b0e17;
+  color: #e8eaf0;
+  overflow: hidden;
+}
+
+/* ── Animated Background Orbs ────────────────────── */
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.45;
+  animation: float 12s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #6c63ff, #3b2fcf);
+  top: -10%;
+  left: -5%;
+  animation-duration: 14s;
+}
+
+.orb-2 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #f857a6, #ff5858);
+  bottom: -8%;
+  right: -5%;
+  animation-duration: 10s;
+  animation-delay: -4s;
+}
+
+.orb-3 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, #00d2ff, #3a7bd5);
+  top: 50%;
+  left: 55%;
+  animation-duration: 16s;
+  animation-delay: -8s;
+}
+
+@keyframes float {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(40px, -30px) scale(1.08); }
+  100% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* ── Layout ──────────────────────────────────────── */
+.container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* ── Glass Card ──────────────────────────────────── */
+.card {
+  text-align: center;
+  padding: 56px 48px 48px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  max-width: 420px;
+  width: 100%;
+  animation: fadeUp 0.8s ease-out;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Avatar ──────────────────────────────────────── */
+.avatar-ring {
+  display: inline-block;
+  padding: 4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6c63ff, #f857a6, #00d2ff);
+  margin-bottom: 24px;
+  animation: ringGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes ringGlow {
+  0%   { box-shadow: 0 0 18px rgba(108, 99, 255, 0.4); }
+  100% { box-shadow: 0 0 28px rgba(248, 87, 166, 0.5); }
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #161a2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #c4b5fd;
+}
+
+/* ── Typography ──────────────────────────────────── */
+.name {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #e0d4fc, #f9a8d4, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Divider ─────────────────────────────────────── */
+.divider {
+  width: 48px;
+  height: 3px;
+  border-radius: 3px;
+  margin: 28px auto;
+  background: linear-gradient(90deg, #6c63ff, #f857a6);
+}
+
+/* ── Clock ───────────────────────────────────────── */
+.clock-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.clock-label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.clock {
+  font-family: 'Space Mono', monospace;
+  font-size: 2.6rem;
+  font-weight: 400;
+  letter-spacing: 4px;
+  color: #f0f0f8;
+  text-shadow: 0 0 20px rgba(108, 99, 255, 0.35);
+}
+
+.date {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 2px;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .card {
+    padding: 40px 28px 36px;
+  }
+  .name {
+    font-size: 1.6rem;
+  }
+  .clock {
+    font-size: 2rem;
+  }
+}
