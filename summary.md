@@ -1,5 +1,9 @@
 # Summary — February 25, 2026
 
+## Screenshot
+
+![Personal Page Screenshot](screenshot.png)
+
 ## 1. Created a Personal Single-Page Website
 
 Built a modern, visually stunning personal page for **Min Hsin Yu** with the following features:
@@ -36,4 +40,5 @@ Built a modern, visually stunning personal page for **Min Hsin Yu** with the fol
 |------|-------------|
 | `index.html` | Main HTML page |
 | `style.css` | All styling and animations |
-| `summarize.md` | This summary |
+| `summary.md` | This summary |
+| `screenshot.png` | Screenshot of the personal page |
